@@ -40,6 +40,31 @@ bool search(Node*root,int data){
 		return search(root->right,data);
 	}
 }
+//finding minimum element in the tree
+int findmim(Node* root){
+	Node* temp=root;
+	if(root==NULL){
+		return -1;
+	}else {
+		while(temp->left!=NULL){
+			temp=temp->left;
+		}
+		return temp->data;
+	}
+}
+
+int findmax(Node* root){
+	Node* temp=root;
+	if(root==NULL){
+		return -1;
+	}else{
+		while(temp->right!=NULL){
+			temp=temp->right;
+		}
+		return temp->data;
+	}
+	
+}
 
 //drive code
 int main(){
@@ -59,4 +84,9 @@ int main(){
 	}else{
 		cout<<"NOT FOUND"<<endl;
 	}
+	//max amd min element
+	cout<<"minimum data elemt is:"<<findmim(root);
+	cout<<endl;
+	cout<<"maximum data elemt is:"<<findmax(root);
+	cout<<endl;
 }
