@@ -51,6 +51,41 @@ void Display(){
 		temp=temp->link;
 	}
 }
+
+
+
+//finding middle element in the linked list
+void findMiddleElement(){
+	Node *p=head,*q=head;
+	while(q!=NULL){
+		q=q->link;
+		if(q!=NULL){
+			q=q->link;
+		}
+		if(q!=NULL){
+			p=p->link;
+		}
+		
+	}
+	cout<<"MIDDLE ELEMENT IN AN LINKED LIST IS "<<p->data<<" "<<endl;
+}
+//finding loop
+bool findLoop(){
+	Node*p=head,*q=head;
+	do{
+		p=p->link;
+		q=q->link;
+		if(q){
+			q=q->link;
+		}
+		
+	}while(p!=NULL && q!=NULL && p!=q );
+	if(p==q){
+		return true;
+	}else{
+		return false;
+	}
+}
 int main(){
 	insertBeg(1);
 	insertBeg(2);
